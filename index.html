@@ -368,6 +368,19 @@ p { margin: 0; }
 .ebook.f10 .f10-launch { color: #dba35c; font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; margin: 8px 0 18px; }
 .btn-rust { background: #c23b1b; border-color: #c23b1b; color: #fff; }
 .btn-rust:hover { background: #d6492a; border-color: #d6492a; }
+
+/* Testimonials */
+.voices { padding-bottom: 40px; }
+.tm-grid { columns: 3 300px; column-gap: 20px; }
+.tm { break-inside: avoid; margin: 0 0 20px; background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: 24px 24px 20px; position: relative; }
+.tm::before { content: "\201C"; position: absolute; top: 6px; left: 18px; font-family: var(--font-display); font-size: 64px; line-height: 1; color: var(--amber); opacity: .35; }
+.tm blockquote { margin: 0 0 16px; padding-top: 18px; font-family: var(--font-display); font-size: 19px; line-height: 1.45; color: var(--text); }
+.tm figcaption { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-top: 1px solid var(--rule); padding-top: 12px; }
+.tm figcaption b { font-weight: 600; color: var(--text); font-size: 15px; }
+.tm figcaption .mono { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--amber); white-space: nowrap; }
+.tm-more { margin-top: 8px; color: var(--muted); font-size: 15px; }
+.tm-more a { color: var(--amber); }
+@media (max-width: 760px) { .tm blockquote { font-size: 18px; } }
 </style></head><body>
 
 <header class="top">
@@ -433,6 +446,55 @@ p { margin: 0; }
         <li><b>Director</b><span>of an international publishing house</span></li>
         <li><b>2,300+</b><span>subscribers on Substack</span></li>
       </ul>
+    </div>
+  </section>
+
+  <section class="sec voices" id="voices" aria-labelledby="voices-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow mono">From my paid subscribers</p>
+        <h2 id="voices-h">Writers who pay to read me.</h2>
+        <p>Real notes from people who pay for my Substack. Nobody asked them to write this.</p>
+      </div>
+      <div class="tm-grid">
+        <figure class="tm">
+          <blockquote>Nobody else shares the same kind of (blunt!) intel that you do. You&#x27;re doing the thing right!</blockquote>
+          <figcaption><b>Tanya B.</b><span class="mono">Paid subscriber</span></figcaption>
+        </figure>
+        <figure class="tm">
+          <blockquote>Your work came into my world the day that publisher rejected my book proposal. It was perfect timing for me to see and understand how the publishing world works and why I shouldn&#x27;t give up even after their rejection. There are paths forward I didn&#x27;t yet imagine, but now can.</blockquote>
+          <figcaption><b>Sara E.</b><span class="mono">Paid subscriber</span></figcaption>
+        </figure>
+        <figure class="tm">
+          <blockquote>Tomas gives a brilliant insight into the publishing world and warns of the pitfalls ahead. Invaluable information from a most reliable source.</blockquote>
+          <figcaption><b>Shane O.</b><span class="mono">Paid subscriber</span></figcaption>
+        </figure>
+        <figure class="tm">
+          <blockquote>I like you as a person. I think you have integrity and I value that above many things... I don&#x27;t need the blueprint, I need to write. To learn to write, and to keep the noise away. I invest in you, not your book.</blockquote>
+          <figcaption><b>ReadWriteRun</b><span class="mono">Paid subscriber</span></figcaption>
+        </figure>
+        <figure class="tm">
+          <blockquote>Great advice and insight, helping me reassess my relationship to the industry and even if I&#x27;m chasing that prestige, at least I&#x27;m going in clear eyed and sober with the tools to make the most of it.</blockquote>
+          <figcaption><b>Jordan S.</b><span class="mono">Paid subscriber</span></figcaption>
+        </figure>
+        <figure class="tm">
+          <blockquote>You are my first paid subscription on Substack. Not only is your writing exceptional, your engagement, insights, and work ethic is inspiring.</blockquote>
+          <figcaption><b>Sean L.</b><span class="mono">Paid subscriber</span></figcaption>
+        </figure>
+        <figure class="tm">
+          <blockquote>Tomas writes with conviction. He was a former well known publisher, and his stories are relevant and interesting. I highly recommend this publication.</blockquote>
+          <figcaption><b>Maurice</b><span class="mono">Paid subscriber</span></figcaption>
+        </figure>
+        <figure class="tm">
+          <blockquote>I had to paywall you... your writing is excellent. I believe in your work and I believe in you. Thank you for sharing a real life experience that was painful, brutal and cold.</blockquote>
+          <figcaption><b>Cailin</b><span class="mono">Paid subscriber</span></figcaption>
+        </figure>
+        <figure class="tm">
+          <blockquote>You keep me reading... I&#x27;m a writer and I know how hard that is to do.</blockquote>
+          <figcaption><b>Blanche B.</b><span class="mono">Paid subscriber</span></figcaption>
+        </figure>
+      </div>
+      <p class="tm-more"><a href="https://tomasblazo.substack.com" target="_blank" rel="noopener">Read me on Substack</a> and see why 2,300+ people do.</p>
     </div>
   </section>
 
