@@ -381,6 +381,57 @@ p { margin: 0; }
 .tm-more { margin-top: 8px; color: var(--muted); font-size: 15px; }
 .tm-more a { color: var(--amber); }
 @media (max-width: 760px) { .tm blockquote { font-size: 18px; } }
+
+/* ===== Depth pass: lighter charcoal page, raised blocks ===== */
+:root {
+  --bg: #1c1a18;
+  --surface: #25221f;
+  --surface-2: #2e2a26;
+  --rule: #3a342e;
+  --lift: 0 1px 0 rgba(255,255,255,.05) inset, 0 2px 4px rgba(0,0,0,.35), 0 18px 44px rgba(0,0,0,.5);
+  --lift-sm: 0 1px 0 rgba(255,255,255,.05) inset, 0 1px 2px rgba(0,0,0,.35), 0 10px 24px rgba(0,0,0,.4);
+}
+body { background: var(--bg); }
+.top { background: #141210; }
+.hero { background: radial-gradient(ellipse at 70% 30%, #26221d 0%, var(--bg) 60%); }
+
+/* each main section becomes a raised sheet with air around it */
+.sec.panel {
+  width: calc(100% - 40px); max-width: 1120px; margin: 36px auto;
+  background: var(--surface); border-radius: 16px; box-shadow: var(--lift);
+  padding-block: 64px !important;
+}
+.sec.panel .wrap { padding-left: 48px; padding-right: 48px; }
+.sec:not(.panel) { padding-block: 36px; }
+
+/* cards inside a sheet sit one level higher */
+.panel .tile, .panel .tm, .panel .which, .panel .faq details, .panel .board {
+  background: var(--surface-2); border-color: var(--rule); box-shadow: var(--lift-sm);
+}
+.panel .tile, .panel .tm, .panel .which { border-radius: 12px; }
+.panel .tile.full { background: #29251f; }
+.panel .tile.popular { box-shadow: 0 0 0 1px var(--amber), var(--lift-sm); }
+.panel .faq { border-top: 0; display: grid; gap: 10px; }
+.panel .faq details { border: 1px solid var(--rule); border-radius: 10px; padding-inline: 18px; }
+
+/* standalone blocks on the page get the full lift */
+.ebook, .contact, .free-band { background: var(--surface); border-radius: 16px; box-shadow: var(--lift); border-color: var(--rule); }
+.ebook.f10 { background: #1a1816; box-shadow: var(--lift), 0 0 0 1px rgba(194,59,27,.35); }
+.ebook + .ebook { margin-top: 36px; }
+.creds, .promise { box-shadow: 0 10px 30px rgba(0,0,0,.35); position: relative; }
+
+/* hover: blocks rise a little */
+.tile, .tm, .ebook, .contact, .free-band { transition: transform .2s ease, box-shadow .2s ease; }
+@media (hover: hover) {
+  .tile:hover, .tm:hover { transform: translateY(-3px); }
+}
+
+@media (max-width: 760px) {
+  .sec.panel { width: calc(100% - 20px); margin: 20px auto; border-radius: 12px; padding-block: 44px !important; }
+  .sec.panel .wrap { padding-left: 18px; padding-right: 18px; }
+  .sec:not(.panel) { padding-block: 20px; }
+  .ebook, .contact, .free-band { border-radius: 12px; }
+}
 </style></head><body>
 
 <header class="top">
@@ -449,7 +500,7 @@ p { margin: 0; }
     </div>
   </section>
 
-  <section class="sec voices" id="voices" aria-labelledby="voices-h">
+  <section class="sec panel voices" id="voices" aria-labelledby="voices-h">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow mono">From my paid subscribers</p>
@@ -498,7 +549,7 @@ p { margin: 0; }
     </div>
   </section>
 
-  <section class="sec" id="work">
+  <section class="sec panel" id="work">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow mono">Work with me</p>
@@ -698,7 +749,7 @@ p { margin: 0; }
     </div>
   </section>
 
-  <section class="sec how" aria-labelledby="how-h">
+  <section class="sec panel how" aria-labelledby="how-h">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow mono">How it works</p>
@@ -785,7 +836,7 @@ p { margin: 0; }
     </div>
   </section>
 
-  <section class="sec" id="about">
+  <section class="sec panel" id="about">
     <div class="wrap about-grid">
       <figure>
         <img src="tomas-blazo-about.jpg" width="800" height="1060" alt="Tomas Blazo, author and former publisher" loading="lazy">
@@ -809,7 +860,7 @@ p { margin: 0; }
     </div>
   </section>
 
-  <section class="sec" id="books" style="padding-top:0">
+  <section class="sec panel" id="books" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow mono">My books</p>
@@ -845,7 +896,7 @@ p { margin: 0; }
     </div>
   </section>
 
-  <section class="sec" id="terms" style="padding-top:0">
+  <section class="sec panel" id="terms" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow mono">Questions</p>
@@ -899,7 +950,7 @@ p { margin: 0; }
       </div>
     </div>
   </section>
-  <section class="sec" id="legal" style="padding-top:0">
+  <section class="sec panel" id="legal" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow mono">Legal</p>
