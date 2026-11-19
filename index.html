@@ -432,18 +432,37 @@ body { background: var(--bg); }
   .sec:not(.panel) { padding-block: 20px; }
   .ebook, .contact, .free-band { border-radius: 12px; }
 }
+
+/* ===== Header nav: clearer and always visible ===== */
+.top { position: sticky; top: 0; z-index: 50; padding-block: 14px; background: rgba(20,18,16,.92); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid var(--rule); box-shadow: 0 8px 24px rgba(0,0,0,.35); }
+.brand { font-size: 14px; color: var(--text); }
+.nav { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.nav a { font-family: var(--font-body); font-size: 14.5px; font-weight: 600; letter-spacing: .01em; text-transform: none; color: #e6dccd; padding: 9px 14px; border-radius: 999px; transition: background .15s, color .15s; }
+.nav a:hover, .nav a.is-active { background: rgba(219,163,92,.14); color: var(--amber); }
+.nav a.nav-cta { background: var(--amber); color: var(--amber-ink); margin-left: 8px; padding: 10px 18px; }
+.nav a.nav-cta:hover { background: #e8b673; color: var(--amber-ink); }
+html { scroll-padding-top: 84px; }
+@media (max-width: 760px) {
+  .top { padding-block: 10px; }
+  .top .wrap { gap: 8px; }
+  .top { position: static; }
+  .nav { width: 100%; flex-wrap: wrap; gap: 6px; }
+  .nav a { font-size: 14px; padding: 7px 12px; white-space: nowrap; background: rgba(255,255,255,.05); }
+  .nav a.nav-cta { margin-left: 0; }
+  html { scroll-padding-top: 16px; }
+}
 </style></head><body>
 
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#top">Tomas Blazo</a>
     <nav class="nav" aria-label="Main">
-      <a href="#work">Work with me</a>
       <a href="#first-10-pages">Audio program</a>
       <a href="#ebook">Ebook</a>
       <a href="#about">About</a>
       <a href="#terms">FAQ</a>
-      <a href="https://tomasblazo.substack.com" data-substack target="_blank" rel="noopener">Substack</a>
+      <a href="https://tomasblazo.substack.com/" target="_blank" rel="noopener" class="nav-ext">Blog<span aria-hidden="true">&nbsp;&#8599;</span></a>
+      <a href="#work" class="nav-cta">Work with me</a>
     </nav>
   </div>
 </header>
@@ -457,7 +476,7 @@ body { background: var(--bg); }
         <p class="lead">Now I show writers exactly why a manuscript gets rejected, and how to fix it before a publisher ever sees it. Straight, written feedback from someone who sat on the other side of the desk.</p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#work">See what is open</a>
-          <a class="btn btn-ghost" href="https://tomasblazo.substack.com" data-substack target="_blank" rel="noopener">Get the free Query Page Template</a>
+          <a class="btn btn-ghost" href="https://drive.google.com/file/d/1nndQBSqoAvjeCKhpQdZERSlrCB3OJqtD/view?usp=sharing" target="_blank" rel="noopener">Get the free Query Page Template</a>
         </div>
         <p class="trust"><b>Worked with authors including</b> Arnold Schwarzenegger, Jordan Belfort, Mitch Albom, Bronnie Ware and Randy Gage.</p>
         <dl class="board" aria-label="Desk status">
@@ -495,7 +514,7 @@ body { background: var(--bg); }
         <li><b>15 years</b><span>inside book publishing</span></li>
         <li><b>8 books</b><span>written by me</span></li>
         <li><b>Director</b><span>of an international publishing house</span></li>
-        <li><b>2,300+</b><span>subscribers on Substack</span></li>
+        <li><b>2,400+</b><span>subscribers on Substack</span></li>
       </ul>
     </div>
   </section>
@@ -545,7 +564,7 @@ body { background: var(--bg); }
           <figcaption><b>Blanche B.</b><span class="mono">Paid subscriber</span></figcaption>
         </figure>
       </div>
-      <p class="tm-more"><a href="https://tomasblazo.substack.com" target="_blank" rel="noopener">Read me on Substack</a> and see why 2,300+ people do.</p>
+      <p class="tm-more"><a href="https://tomasblazo.substack.com" target="_blank" rel="noopener">Read me on Substack</a> and see why 2,400+ people do.</p>
     </div>
   </section>
 
@@ -1281,5 +1300,12 @@ var CONFIG = {
   window.addEventListener('hashchange', openLegal);
   openLegal();
 })();
+</script>
+<script>
+(function(){var links=[].slice.call(document.querySelectorAll('.nav a[href^="#"]:not(.nav-cta)'));
+if(!('IntersectionObserver' in window))return;
+var map={};links.forEach(function(a){var el=document.querySelector(a.getAttribute('href'));if(el)map[el.id]=a;});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.remove('is-active')});var a=map[e.target.id];if(a)a.classList.add('is-active');}})},{rootMargin:'-40% 0px -55% 0px'});
+Object.keys(map).forEach(function(id){io.observe(document.getElementById(id))});})();
 </script>
 </body></html>
